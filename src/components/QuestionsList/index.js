@@ -2,9 +2,10 @@ import React, { useState, Fragment } from 'react';
 
 import data from './data';
 import Report from '../Report';
+import useQuestions from '../../hooks/questions.hooks';
 
 export default function QuestionsList({ incrementScore }) {
-  const [questions, setQuestions] = useState([...data]);
+  const [questions, setQuestions] = useQuestions([...data]);
   const [userAnswers, setUserAnswers] = useState([]);
 
   function addUserAnswers(question, answer) {
