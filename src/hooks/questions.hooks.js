@@ -1,7 +1,13 @@
 import { useState } from 'react';
 
-export default function useQuestions(data) {
-  const [questions, setQuestions] = useState(data);
+import data from '../components/QuestionsList/data';
+
+export default function useQuestions() {
+  const [questions, setQuestions] = useState([
+    ...data.map(_data => ({
+      ..._data,
+    })),
+  ]);
 
   return [questions, setQuestions];
 }
